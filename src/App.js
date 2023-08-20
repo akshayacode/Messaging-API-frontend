@@ -63,7 +63,7 @@ function App() {
         const signer = await getSigner();
         const contractNetwork = await getRouterContract(signer);
         await contractNetwork
-          .sendVote(proposalId, vote, { value: ethers.parseEther("0.00001") })
+          .sendVote(proposalId, vote, { value: ethers.parseEther("0.01"), gasLimit: "3000000" })
           .then((res) => console.log(res))
           .catch((err) => alert(err));
       } else if (contract === "sepolia") {
